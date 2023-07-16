@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>تسجيل الدخول</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+        body {
+          background-color: #f8f9fa;
+        }
+      </style>
+</head>
+  <body>
+    <nav 
+     class="navbar navbar-expand-lg navbar-light  d-flex justify-content-center align-items-center  bg-secondary text-light p-3"
+  >         <a class="navbar-brand" href="#"><h1 class="text-light" >Smart Wheel Chair</h1></a>
+    </nav>
+
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+          <h2>log in</h2>
+          <form action="/form_login" method="post">
+            <div class="form-group">
+              <label for="name">username:</label>
+              <input
+              size="12" type="text" required name="name"
+                class="form-control"
+                id="name"
+                placeholder="Enter Username"
+              />
+            </div>
+            <div class="form-group">
+              <label for=""> password:</label>
+              <input
+              size="8" required name="pass" 
+                type="password"
+                class="form-control"
+                id="pwd"
+                placeholder="Enter Password"
+                
+              />
+            </div>
+            <button type="submit" class="btn btn-primary"> SIGN IN </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+   
+
+    {% include 'footer.html' %}
+  </body>
+</html>
+

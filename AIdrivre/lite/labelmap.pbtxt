@@ -1,0 +1,25 @@
+item {
+  id: 1
+  name: 'car'
+}
+
+item {
+  id: 2
+  name: 'green'
+}
+
+item {
+  id: 3
+  name: 'red'
+}
+
+item {
+  id: 4
+  name: 'speed 30'
+}
+
+item {
+  id: 5
+  name: 'speed 60'
+}
+

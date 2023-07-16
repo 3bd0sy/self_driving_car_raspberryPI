@@ -1,0 +1,502 @@
+@media only screen and (max-width: 600px) {
+    a {
+        display: inline-block;
+        text-decoration: none;
+        margin-left: auto;
+        margin-top: 170px;
+        padding-left: 20%;
+    }
+
+    .url {
+        background-color: chartreuse;
+        width: 250px;
+        border-radius: 50px;
+        border: 3px solid;
+        border-color: rgb(32, 40, 83);
+    }
+
+    .url:hover {
+        background-color: rgb(32, 40, 83);
+        color: aquamarine;
+        border: 3px solid;
+        border-color: yellow;
+    }
+    
+    body {
+        background-color: rgb(255, 255, 255);
+    }
+
+    .logo {
+        height: 100px;
+        display: inline-block;
+    }
+
+
+    h1 {
+        background-color: rgb(67, 153, 192);
+        font-size: 30px;
+        text-align: center;
+        clear: both;
+    }
+
+
+    h2 {
+        display: inline-block;
+        color: aqua;
+        height: 49px;
+        float: right;
+        font-size: 20px;
+    }
+
+
+    header {
+        height: 50px;
+        background-color: rgb(52, 54, 85);
+        padding-bottom: 150px;
+    }
+
+
+    .box3 {
+        border-radius: 20px 20px 80px 80px;
+        display: grid;
+        grid-template-areas:
+            'h1 h1 h1 h1 h1 h1'
+            'h2 h2 h2 h2 h2 h2'
+            'h3 h3 h3 h3 h3 h3'
+            'h4 h4 h4 h4 h4 h4';
+        gap: 10px;
+        margin-top: 100px;
+        background-color: rgb(60, 110, 107);
+        /* display: inline-block; */
+        width: 99%;
+        margin-left: 0%;
+        height: 400px;
+    }
+
+
+
+
+
+
+    div.example {
+        display: none;
+    }
+
+    * {
+        margin: 0px;
+        padding: 0px;
+        font-size: 20px;
+    }
+
+
+    main {
+        height: 600px;
+        background-color: rgb(52, 54, 85);
+    }
+
+
+    .box1 {
+        width: 100%;
+        height: 400px;
+        background-color: rgb(59, 47, 58);
+        /* margin-left: 5%; */
+        border: 3px blue solid;
+        border-radius: 25px;
+        color: bisque;
+    }
+
+
+    footer {
+        padding-top: 0px;
+        background-color: rgb(70, 28, 104);
+        text-align: center;
+    }
+
+    .f1 {
+        height: 60%;
+        text-align: center;
+        font-size: 25px;
+        color: rgb(80, 94, 182);
+        text-transform: uppercase;
+        text-decoration: underline;
+    }
+
+    .f2 {
+        height: 40%;
+        text-transform: uppercase;
+        line-height: 80px;
+        text-align: center;
+    }
+
+
+
+    input[type="text"] {
+        width: 200px;
+    }
+
+    input[type="password"] {
+        width: 200px;
+    }
+
+
+
+
+
+
+
+    .box3>div {
+        text-transform: uppercase;
+        text-align: center;
+        padding: 20px 0;
+        font-size: 30px;
+
+    }
+
+    .i1 {
+        grid-area: h1;
+        color: rgb(255, 255, 255);
+    }
+
+    .i2 {
+        grid-area: h2;
+        color: rgb(255, 255, 255);
+
+    }
+
+    .i3 {
+        grid-area: h3;
+        color: rgb(255, 255, 255);
+
+    }
+
+    .i4 {
+        grid-area: h4;
+    }
+
+
+    body {
+        background-color: rgb(52, 54, 85);
+    }
+
+    .form1 {
+        padding-bottom: 150px;
+    }
+
+
+
+
+}
+
+
+@media screen and (min-width: 600px) {
+
+    a {
+        display: inline-block;
+        text-decoration: none;
+        margin-left: 35%;
+        margin-top: 18%;
+    }
+
+    .url {
+        background-color: chartreuse;
+        width: 350px;
+        border-radius: 50px;
+        border: 3px solid;
+        border-color: rgb(32, 40, 83);
+    }
+
+    .url:hover {
+        background-color: rgb(32, 40, 83);
+        color: aquamarine;
+        border: 3px solid;
+        border-color: yellow;
+    }
+
+    div.example {
+        display: none;
+    }
+
+    * {
+        margin: 0px;
+        padding: 0px;
+        font-size: 30px;
+    }
+
+
+    main {
+        height: 600px;
+        background-color: rgb(52, 54, 85);
+    }
+
+
+    .box1 {
+        width: 90%;
+        height: 500px;
+        background-color: rgb(59, 47, 58);
+        margin-left: 5%;
+        color: bisque;
+        border-radius: 50px;
+        border: 3px blue solid;
+    }
+
+
+    footer {
+        padding-top: 0px;
+        background-color: rgb(70, 28, 104);
+        text-align: center;
+    }
+
+    .f1 {
+        height: 60%;
+        text-align: center;
+        font-size: 40px;
+        color: rgb(80, 94, 182);
+        text-transform: uppercase;
+        text-decoration: underline;
+    }
+
+    .f2 {
+        height: 40%;
+        text-transform: uppercase;
+        line-height: 80px;
+        text-align: center;
+    }
+
+
+
+    header {
+        height: 200px;
+        background-color: rgb(52, 54, 85);
+        padding-bottom: 150px;
+    }
+
+    h1 {
+        background-color: rgb(67, 153, 192);
+        font-size: 50px;
+        text-align: center;
+        clear: both;
+    }
+
+    h2 {
+        display: inline-block;
+        color: aqua;
+        height: 100%;
+        float: right;
+    }
+
+
+
+
+
+    .box3 {
+        border-radius: 20px 20px 80px 80px;
+        display: grid;
+        grid-template-areas:
+            'h1   h1   h1   h1   h1    h1'
+            'h2   h2   h2   h2   h2    h2'
+            'h3   h3   h3   h3   h3    h3'
+            'h4   h4   h4   h4   h4    h4';
+        gap: 10px;
+        margin-top: 100px;
+        background-color: rgb(60, 110, 107);
+        /* display: inline-block; */
+        width: 60%;
+        margin-left: 20%;
+        height: 400px;
+    }
+
+    .box3>div {
+        text-transform: uppercase;
+        text-align: center;
+        padding: 20px 0;
+        font-size: 30px;
+
+    }
+
+    .i1 {
+        grid-area: h1;
+        color: rgb(255, 255, 255);
+    }
+
+    .i2 {
+        grid-area: h2;
+        color: rgb(255, 255, 255);
+
+    }
+
+    .i3 {
+        grid-area: h3;
+        color: rgb(255, 255, 255);
+
+    }
+
+    .i4 {
+        grid-area: h4;
+    }
+
+    .logo {
+        height: 100%;
+        display: inline-block;
+    }
+
+    body {
+        background-color: rgb(52, 54, 85);
+    }
+
+    .form1 {
+        padding-bottom: 150px;
+    }
+
+
+    input[type="text"] {
+        width: 200px;
+    }
+
+    input[type="password"] {
+        width: 200px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+/* * {
+    margin: 0px;
+    padding: 0px;
+    font-size: 30px;
+}
+
+
+main {
+    height: 600px;
+    background-color:  rgb(52, 54, 85);
+}
+
+
+.box1 {
+    width: 90%;
+    height: 500px;
+    background-color: rgb(59, 47, 58);
+    margin-left: 5%;
+    color: bisque;
+}
+
+
+footer {
+    padding-top: 0px;
+    background-color: rgb(70, 28, 104);
+    text-align: center;
+}
+
+.f1 {
+    height: 60%;
+    text-align: center;
+    font-size: 40px;
+    color: rgb(80, 94, 182);
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+.f2 {
+    height: 40%;
+    text-transform: uppercase;
+    line-height: 80px;
+    text-align: center;
+}
+
+
+
+header {
+    height: 200px;
+    background-color: rgb(52, 54, 85);
+    padding-bottom: 150px;
+}
+
+h1 {
+    background-color: rgb(67, 153, 192);
+    font-size: 50px;
+    text-align: center;
+    clear: both;
+}
+h2 {
+    display: inline-block;
+    color: aqua;
+    height: 100%;
+    float: right;
+}
+
+
+
+
+
+.box3 {
+    border-radius: 20px 20px 80px 80px;
+    display: grid;
+    grid-template-areas:
+        'h1   h1   h1   h1   h1    h1'
+        'h2   h2   h2   h2   h2    h2'
+        'h3   h3   h3   h3   h3    h3'
+        'h4   h4   h4   h4   h4    h4';
+    gap: 10px;
+    margin-top: 100px;
+    background-color: rgb(60, 110, 107);
+    display: inline-block;
+    width: 60%;
+    margin-left: 20%;
+    height: 300px;
+}
+
+
+
+.box3>div {
+    text-transform: uppercase;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+
+}
+
+.i1 {
+    grid-area: h1;
+    color: rgb(255, 255, 255);
+}
+
+.i2 {
+    grid-area: h2;
+    color: rgb(255, 255, 255);
+
+}
+
+.i3 {
+    grid-area: h3;
+    color: rgb(255, 255, 255);
+
+}
+
+.i4 {
+    grid-area: h4;
+}
+
+.logo {
+    height: 100%;
+    display: inline-block;
+}
+
+body{
+    background-color: rgb(52, 54, 85);
+}
+
+.form1{
+    padding-bottom: 150px;
+}
+
+
+
+
+ */

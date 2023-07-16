@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <title>Document</title>
+
+  <style>
+    .display_area {
+      /* display: inline-block;*/
+      width: 60%;
+      height: 100%;
+      margin-left: auto;
+      border-radius: 25px;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    // Define a function to send POST request with button name and value
+    function sendButton(button_name, button_value) {
+      // Create JSON data object
+      var data = {
+        'button_name': button_name,
+        'button_value': button_value
+      };
+      // Send POST request using jQuery ajax method
+      $.ajax({
+        url: '/button',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(data),
+        success: function (response) {
+          // Handle success response
+          console.log(response);
+        },
+        error: function (error) {
+          // Handle error response
+          console.error(error);
+        }
+      });
+    }
+
+
+  </script>
+  <style>
+    #up:active,
+    #down:active,
+    #left:active,
+    #right:active {
+      fill: rgb(10, 246, 10);
+    }
+  </style>
+</head>
+
+<body>
+  {% include 'header.html' %}
+
+  <div class="d-flex flex-row">
+    <div  class="p-2" style="margin-left:25%;" data-mdb-zoom-effect="true" data-mdb-auto-height="true">
+      <img class="display_area" id="bg" src="{{ url_for('video_feed2') }}" />
+    </div>
+
+    <div  class="p-2" id="joystick" style="width:20%">
+      <svg width="100%" height="100%" viewBox="0 0 100 100">
+        <defs>
+          <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:rgb(16,16,16);stop-opacity:1" />
+            <stop offset="100%" style="stop-color:rgb(240,240,240);stop-opacity:1" />
+          </linearGradient>
+          <linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:rgb(240,240,240);stop-opacity:1" />
+            <stop offset="100%" style="stop-color:rgb(16,16,16);stop-opacity:1" />
+          </linearGradient>
+          <linearGradient id="grad3" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:rgb(168,168,168);stop-opacity:1" />
+            <stop offset="100%" style="stop-color:rgb(239,239,239);stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <circle cx="50" cy="50" r="50" fill="url(#grad1)" />
+        <circle cx="50" cy="50" r="47" fill="url(#grad2)" stroke="black" stroke-width="1.5px" />
+        <circle cx="50" cy="50" r="44" fill="url(#grad3)" />
+        <circle cx="50" cy="50" r="20" fill="#4040ff" stroke="black" stroke-width="2px"  onclick="sendButton('center', true); " />
+        <path id="up" d="M50,8 64,22 36,22Z"    fill="#000000"
+         onmouseup="sendButton('_up',    false); " onmousedown="sendButton('up',   true); " />
+        <path id="down" d="M50,92 64,78 36,78Z" fill="#000000"
+         onmouseup="sendButton('_down',  false); " onmousedown="sendButton('down', true); " />
+        <path id="left" d="M8,50 22,64 22,36Z"  fill="#000000"
+         onmouseup="sendButton('_left',  false); " onmousedown="sendButton('left', true); " />
+        <path id="right" d="M92,50 78,64 78,36Z"fill="#000000"
+         onmouseup="sendButton('_right', false); " onmousedown="sendButton('right',true); " />
+      </svg>
+    </div>
+  </div>
+
+
+  <div>
+    text hear
+  </div>
+
+  {% include 'footer.html' %}
+
+
+</body>
+
+</html>
