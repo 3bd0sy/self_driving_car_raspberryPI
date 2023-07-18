@@ -1,56 +1,105 @@
-# SELF DRIVING CAR USING RASPBERRY PI
-This is a short introduction to my  project.
+# Self-Driving Car Using Raspberry Pi
+
 ![logo](data/logo.jpg?raw=true "Tlogo")
 
+This is a short introduction to my project.
 
+## Features
 
-### Features :
-- a website where you can control the car
-- you can use manual mode to control the car by the joystick   
-- you can use AI mode to let the car drive itself 
-- edge tracking algorithm
-- tensorflow lite model
+- A website where you can control the car
+- Manual mode to control the car using a joystick
+- AI mode to let the car drive itself
+- Edge tracking algorithm
+- TensorFlow Lite model
 
-### car parts :
-- arduino car 4WD
-- rasbperry pi 4
-- camera pi
-- google coral (i didnt use it , but you need it)  
+---
 
+## Car Parts
 
-### note :
-- you need to change the lower and upper color in the AIdrive/edgeDetectionModule.py
-- you need to change the PATH_TO_CKPT and PATH_TO_LABELS in the AIdrive/tfliteDetection.py
-- 
+- Arduino car 4WD
+- Raspberry Pi 4
+- Pi camera
+- Google Coral (optional, but recommended)
+
+---
+
+## Car
+
+<table>
+ <tr>
+  <td> <img src="data/car1.jpg">  </td>
+  <td> <img src="data/car2.jpg">  </td>
+ </tr>
+</table>
+
+---
+
+## Note
+
+- You need to change the lower and upper color values in the AIdrive/edgeDetectionModule.py file.
+- You need to change the PATH_TO_CKPT and PATH_TO_LABELS values in the AIdrive/tfliteDetection.py file.
 
 To install this project, you need to have Python 3 and some dependencies. You can use pip to install them:
-```python 
+
 pip install -r requirements.txt
-```
 
 Then, you can run the main script:
 
-```python 
 python app.py
-```
 
+---
 
-Usage
-To use this project, you need to provide some input data in the data folder. The data should be in CSV format with the following columns:
+## Objects We Have Trained On
 
-Column 1: This is what it means
-Column 2: This is what it means
-Column 3: This is what it means
-The output will be saved in the output folder as a JSON file with some results.
+<img src="data/database.jpg">
 
-License
-This project is licensed under the MIT License. See the LICENSE file for more details.
+---
 
+## Model Results
+
+<img src="data/modelOUTPUT.jpg">
+
+---
+
+## Path Following Algorithm
+
+### Example 1
+
+<img src="data/path8.jpg">
+
+### Example 2
+
+<img src="data/path10.jpg">
+
+### Example 3
+
+<img src="data/path12.jpg">
+
+More examples can be found in the data folder.
+
+---
+
+## Execution Mechanism
+
+### Centralized Control Algorithm
+
+<img src="data/alg1.jpg">
+
+### Command Issuing Algorithm
+
+<img src="data/alg2.jpg">
+
+---
 
 ## License
 
-MIT
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
-**Free Software, Hell Yeah!**
+## Links
 
+- [LinkedIn](https://www.linkedin.com/in/3bdo-abdulbasit-abdulgani)
+- [YouTube](https://www.youtube.com/@3bdo_sy)
 
+MIT License
+
+Free Software, Hell Yeah!
