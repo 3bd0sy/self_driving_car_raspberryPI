@@ -23,6 +23,12 @@ This is a short introduction to my project.
 
 ---
 
+## car test
+
+- [youtube video](https://youtu.be/lxvGn5W3UPM)
+
+---
+
 ## Car
 
 <table>
@@ -58,6 +64,12 @@ python app.py
 ## Model Results
 
 <img src="data/modelOUTPUT.jpg">
+
+---
+
+## to train your model
+
+- [use this colab notebook](https://colab.research.google.com/github/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/blob/master/Train_TFLite2_Object_Detction_Model.ipynb#scrollTo=eGEUZYAMEZ6f)
 
 ---
 
