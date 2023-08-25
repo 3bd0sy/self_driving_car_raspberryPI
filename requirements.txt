@@ -3,4 +3,5 @@ tensorflow
 tflite_runtime
 numpy
 flask
-
+difflib
+SpeechRecognition
