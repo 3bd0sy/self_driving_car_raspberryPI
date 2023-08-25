@@ -9,7 +9,7 @@ from AIdrivre.pipeLine import stream
 from AIdrivre.edgeDetectionModule import edgeDetection
 from AIdrivre.tfliteDetection import objectDetection
 from AIdrivre.driveModule import driveOBJ
-
+from VoiceProcessing import extract_command
 
 import json
 
@@ -144,6 +144,37 @@ def video_feed():
 def video_feed2():
     return Response(video_stream_m(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
+@app.route("/voice_page")
+def voice():
+    return render_template('voice_page.html')
+
+
+@app.route('/upload', methods=['POST'])
+def upload():
+    # print(request)
+    # TODO edit the follwing code to move the car 
+    # TODO there was problem with audio format `webm` you should convert it to `wav`
+
+    blob = request.files['blob']
+    blob.save('./voice_save/voice1.wav') # or any other format
+    comamand=extract_command(blob)
+
+    # if comamand=="forward":
+    #     car.forward()
+    
+    # if btn_name=="backward":
+    #     car.backward()
+
+    # if comamand=="left":
+    #     car.left()
+
+    # if comamand=="right":
+    #     car.right()
+
+    # if comamand in ["_up","_down","_left","_right"]:
+    #     print("car stopped")
+    #     car.stop()
+    return 'OK'
 
 # print("Running on http://your ip:5000/camera")
-app.run(host='192.168.0.102', port='5000', debug=False)# change host on raspberry pi
+app.run(host='0.0.0.0', port='5000', debug=not False)# change host on raspberry pi

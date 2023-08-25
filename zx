@@ -1,0 +1,86 @@
+<script>
+  const startButton = document.getElementById("start");
+  const stopButton = document.getElementById("stop");
+  const saveButton = document.getElementById("save");
+  const preview = document.getElementById("preview");
+  let stream;
+  let recorder;
+  let blob;
+  async function startRecording() {
+
+    stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    recorder = new Recorder(stream);
+    // create a Recorder object 
+    recorder.record(); // start recording 
+    startButton.disabled = true;
+    stopButton.disabled = false;
+    setTimeout(stopRecording, 10000);
+    saveRecording()
+  } function stopRecording() {
+    
+    recorder.stop(); // stop recording 
+    recorder.exportWAV(function (wavBlob) { // export the recorded audio as a WAV blob
+      blob = wavBlob;
+      const url = URL.createObjectURL(blob);
+      preview.src = url;
+      saveButton.disabled = false;
+    });
+    stream.getTracks().forEach(track => track.stop());
+    stopButton.disabled = true;
+    startButton.disabled = false;
+  }
+
+  function saveRecording() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/upload', true);
+    xhr.onload = function (e) {
+    };
+    var formData = new FormData();
+    formData.append('blob', blob);
+    xhr.send(formData); xhr.send(blob);
+    saveButton.disabled = true;
+
+  }
+
+  startButton.addEventListener("click", startRecording);
+  stopButton.addEventListener("click", stopRecording);
+  saveButton.addEventListener("click", saveRecording);
+
+</script>
+
+/*
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"crossorigin="anonymous"></script> 
+  <title>Document</title>
+  <style>
+    button{display: inline-block;padding: 10px;margin: 10px;background-color: #4CAF50;color: white;border: none;cursor: pointer;}
+    button:hover{background-color: #3E8E41;}
+    button:disabled{background-color: #9E9E9E;cursor: default;}
+    audio {display: block;margin: 10px;}
+  </style>
+</head>
+<body>
+  {% include 'header.html' %}
+  <button id="start">Start Recording</button>
+  <button id="stop" disabled>Stop Recording</button>
+  <button id="save" disabled>Save Recording</button>
+  <audio id="preview" controls></audio>
+  {% include 'footer.html' %}
+  <script>const startButton = document.getElementById("start");const stopButton = document.getElementById("stop");const saveButton = document.getElementById("save");const preview = document.getElementById("preview");let stream;let recorder;let blob;
+    async function startRecording() {stream = await navigator.mediaDevices.getUserMedia({ audio: true });recorder = new MediaRecorder(stream);const chunks = [];recorder.ondataavailable = e => {chunks.push(e.data);if (recorder.state === "inactive") {blob = new Blob(chunks, { type: "audio/wav" });const url = URL.createObjectURL(blob);preview.src = url;saveButton.disabled = false;}};recorder.start();startButton.disabled = true;stopButton.disabled = false;setTimeout(stopRecording, 10000);saveRecording()}
+    function stopRecording() {recorder.stop();stream.getTracks().forEach(track => track.stop());stopButton.disabled = true;startButton.disabled = false;}
+    function saveRecording() {var xhr = new XMLHttpRequest();xhr.open('POST', '/upload', true);xhr.onload = function (e) {};var formData = new FormData();extractCommand(blob);formData.append('blob', blob);xhr.send(formData); xhr.send(blob);saveButton.disabled = true;}
+    startButton.addEventListener("click", startRecording);
+    stopButton.addEventListener("click", stopRecording);
+    saveButton.addEventListener("click", saveRecording);
+  </script>
+</body>
+</html> -->*/

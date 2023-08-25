@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+
+  <title>Document</title>
+
+  <style>
+    .display_area {
+      width: 60%;
+      height: 100%;
+      margin-left: auto;
+      border-radius: 25px;
+    }
+  </style>
+
+  </script>
+  <style>
+    button {
+      display: inline-block;
+      padding: 10px;
+      margin: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #3E8E41;
+    }
+
+    button:disabled {
+      background-color: #9E9E9E;
+      cursor: default;
+    }
+
+    audio {
+      display: block;
+      margin: 10px;
+    }
+
+    .display_area {
+      /* display: inline-block;*/
+      width: 60%;
+      height: 100%;
+      margin-left: auto;
+      border-radius: 25px;
+      background-color: #3E8E41;
+    }
+  </style>
+  <!-- <script src=“https://cdnjs.cloudflare.com/ajax/libs/string-similarity/4.0.4/string-similarity.min.js”></script> -->
+</head>
+
+<body>
+  {% include 'header.html' %}
+
+  </div>
+  <div class="p-2" style="margin-left:25%;" data-mdb-zoom-effect="true" data-mdb-auto-height="true">
+    <img class="display_area" width="500px" height="300px" id="bg" src="{{ url_for('video_feed2') }}" />
+  </div>
+  <div class="ml-5">
+    <h1>Audio Recorder</h1>
+    <p>the audio recording is 5 seconds long</p>
+    <button id="start">Start Recording</button>
+    <button id="stop" disabled>Stop Recording</button>
+    <button id="save" disabled>Send Record</button>
+    <audio id="preview" controls></audio>
+  </div>
+  {% include 'footer.html' %}
+
+  <script>
+    const startButton = document.getElementById("start");
+    const stopButton = document.getElementById("stop");
+    const saveButton = document.getElementById("save");
+    const preview = document.getElementById("preview");
+    let stream;
+    let recorder;
+    let blob;
+    async function startRecording() {
+      stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      recorder = new MediaRecorder(stream);
+      const chunks = [];
+      recorder.ondataavailable = e => {
+        chunks.push(e.data);
+        if (recorder.state === "inactive") {
+          blob = new Blob(chunks, { type: "audio/wav" });
+          const url = URL.createObjectURL(blob);
+          preview.src = url;
+          saveButton.disabled = false;
+        }
+      };
+      recorder.start();
+      startButton.disabled = true;
+      stopButton.disabled = false;
+      setTimeout(stopRecording, 5000);
+      saveRecording()
+    }
+    function stopRecording() {
+      recorder.stop();
+      stream.getTracks().forEach(track => track.stop());
+      stopButton.disabled = true;
+      startButton.disabled = false;
+    }
+
+    function saveRecording() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '/upload', true);
+      xhr.onload = function (e) {
+      };
+      var formData = new FormData();
+      formData.append('blob', blob);
+      xhr.send(formData); xhr.send(blob);
+      saveButton.disabled = true;
+    }
+
+    startButton.addEventListener("click", startRecording);
+    stopButton.addEventListener("click", stopRecording);
+    saveButton.addEventListener("click", saveRecording);
+
+  </script>
+
+</body>
+
+</html>
