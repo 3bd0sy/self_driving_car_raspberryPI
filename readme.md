@@ -46,13 +46,13 @@ This is a short introduction to my project.
 - You need to change the PATH_TO_CKPT and PATH_TO_LABELS values in the AIdrive/tfliteDetection.py file.
 
 To install this project, you need to have Python 3 and some dependencies. You can use pip to install them:
-
+```
 pip install -r requirements.txt
-
+```
 Then, you can run the main script:
-
+```
 python app.py
-
+```
 ---
 
 ## Objects We Have Trained On
