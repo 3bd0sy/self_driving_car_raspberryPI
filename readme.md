@@ -109,7 +109,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Links
 
-- [LinkedIn](hyyps://www.linkedin.com/in/abdulbasit-abdulgani)
+- [LinkedIn](https://www.linkedin.com/in/abdulbasit-abdulgani)
 - [YouTube](https://www.youtube.com/@3bdo_sy)
 
 MIT License
